@@ -1,0 +1,30 @@
+{
+  "name": "alinabolat.com",
+  "version": "1.0.0",
+  "description": "Digital Marketing Expert and Project Manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "digital",
+    "marketing",
+    "expert"
+  ],
+  "author": "Anuar Bolatov",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-watch": "^4.3.11",
+    "node-normalize-scss": "^1.4.0",
+    "pump": "^1.0.2"
+  }
+}
