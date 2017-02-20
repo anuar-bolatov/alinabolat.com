@@ -1,17 +1,19 @@
+'use strict';
+
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
-    sass = require('gulp-sass'),
-    cleanCSS = require('gulp-clean-css'),
-    autoprefixer = require('gulp-autoprefixer'),
+    prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     pump = require('pump'),
-    htmlmin = require('gulp-htmlmin'),
-    rigger = require('gulp-rigger'),
+    sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
-    browserSync = require('browser-sync').create(),
+    rigger = require('gulp-rigger'),
+    cleanCSS = require('gulp-clean-css'),
+    htmlmin = require('gulp-htmlmin'),
+    rimraf = require('rimraf'),
+    browserSync = require("browser-sync"),
     reload = browserSync.reload;
 
-// Directories
 var path = {
     build: {
         html: 'dist/',
@@ -19,31 +21,35 @@ var path = {
         css: 'dist/css/'
     },
     src: {
-        html: 'src/*.html',
-        js: 'src/js/app.js',
-        style: 'src/scss/app.scss'
+        html: 'app/*.html',
+        js: 'app/js/app.js',
+        style: 'app/scss/app.scss'
     },
     watch: {
-        html: 'src/**/*.html',
-        js: 'src/js/**/*.js',
-        style: 'src/scss/*.scss'
+        html: 'app/**/*.html',
+        js: 'app/js/**/*.js',
+        style: 'app/scss/*.scss'
     },
     clean: './dist'
 };
 
-// Static Server + Tunnel
-gulp.task('browser-sync', function () {
-    browserSync.init({
-        server: {
-            baseDir: "./dist"
-        },
-        tunnel: true,
-        host: 'localhost',
-        port: 8080
-    });
+var config = {
+    server: {
+        baseDir: "./dist"
+    },
+    tunnel: true,
+    tunnel: "alinabolat",
+    host: 'localhost'
+};
+
+gulp.task('webserver', function () {
+    browserSync(config);
 });
 
-// Combining HTML file
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
+});
+
 gulp.task('html:build', function () {
     gulp.src(path.src.html)
         .pipe(rigger())
@@ -52,34 +58,41 @@ gulp.task('html:build', function () {
         .pipe(reload({stream: true}));
 });
 
-// Build JavaScript files 
-gulp.task('js:build', function () {
+gulp.task('js:build', function (cd) {
     pump([
-      gulp.src(path.src.js),
-      rigger(),
-      sourcemaps.init(),
-      uglify(),
-      sourcemaps.write('.'),
-      gulp.dest(path.build.js),
-      reload({stream: true})
-    ]);
+        gulp.src(path.src.js),
+        rigger(),
+        sourcemaps.init(),
+        uglify(),
+        sourcemaps.write(),
+        gulp.dest(path.build.js),
+        reload({stream: true})
+    ], cd);
 });
 
-// Compile sass into CSS & auto-inject into browsers
 gulp.task('style:build', function () {
-    return gulp.src(path.src.style)
+    gulp.src(path.src.style)
         .pipe(sourcemaps.init())
         .pipe(sass({
-            includePaths: require('node-normalize-scss').includePaths
+            includePaths: ['app/scss/'],
+            outputStyle: 'compressed',
+            sourceMap: true,
+            errLogToConsole: true
         }))
-        .pipe(autoprefixer())
-        .pipe(cleanCSS())
-        .pipe(sourcemaps.write('.'))
+        .pipe(prefixer())
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
 });
 
-// Watch tasks
+gulp.task('build', [
+    'html:build',
+    'js:build',
+    'style:build'
+]);
+
+
 gulp.task('watch', function () {
     watch([path.watch.html], function (event, cb) {
         gulp.start('html:build');
@@ -92,10 +105,5 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('build', [
-    'html:build',
-    'js:build',
-    'style:build'
-]);
 
-gulp.task('default', ['build', 'watch', 'browser-sync']);
+gulp.task('default', ['build', 'webserver', 'watch']);
