@@ -1,18 +1,73 @@
-body, html {
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
     position: relative;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
 The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
 of those sections to manage the look and feel of the site. */
 
-.hero-section, .consulting-section,
-.contact-section, .services-section,
-.analitics-section {
+.header_global {
     position: relative;
+    z-index: 11;
+}
+
+.main_content {
+    position: relative;
+    z-index: 10;
+    background: #fff;
+}
+
+.footer_spacer {
+    position: relative;
+    z-index: -1;
+    height: 20em;
+    pointer-events: none;
+}
+
+footer {
+    position: fixed;
+    z-index: 0;
+    height: 30em;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #ff5c5c;
+}
+
+.footer, .footer_link {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    padding-top: 7em;
-    text-align: center;
+}
+
+.footer_content {
+    position: fixed;
+    z-index: 1;
+    bottom: 13em;
+    width: 100%;
+}
+
+.footer_secondary {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    bottom: 1em;
+    width: 100%;
+}
+
+.hero-section {
+    padding: 7em 0;
 }
