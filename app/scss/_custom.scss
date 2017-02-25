@@ -20,24 +20,51 @@ of those sections to manage the look and feel of the site. */
     z-index: 11;
     width: 100%;
     transition: transform .5s ease-in-out;
+
+    &.up {
+        transform: translateY(-100%);
+    }
 }
 
-.header_global.up {
-    transform: translateY(-100%);
+.active {
+    position: relative;
+
+    &:after {
+        // box-shadow: 0 -3px #8F3985 inset;
+        // transition: 0.5s;
+        display: block;
+        position: absolute;
+        content: '';
+        height: 3px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background-color: #8F3985;
+        animation: active .3s ease-in-out;
+    }
+
+    @keyframes active {
+        from {width: 0;}
+        to {width: 100%;}
+    }
 }
 
 .main_content {
     position: relative;
     z-index: 10;
     background: #fff;
+
+    .services_section,
+    .consulting_section,
+    .analitics_section {
+        padding: 3em 0;
+        margin-bottom: 2em;
+    }
 }
 
-.services_section,
-.consulting_section,
-.analitics_section {
-    padding: 3em 0;
-    margin-bottom: 2em;
-}
+
+
+// Footer styles
 
 .footer_spacer {
     position: relative;
@@ -54,33 +81,29 @@ footer {
     bottom: 0;
     width: 100%;
     background: #ff5c5c;
-}
 
-.footer, .footer_link {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+    .footer, .footer_link {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-.footer_content {
-    position: fixed;
-    z-index: 1;
-    bottom: 13em;
-    width: 100%;
-}
+    .footer_content {
+        position: fixed;
+        z-index: 1;
+        bottom: 13em;
+        width: 100%;
+    }
 
-.footer_secondary {
-    position: fixed;
-    z-index: 3;
-    left: 0;
-    bottom: 1em;
-    width: 100%;
-}
-
-.hero-section {
-    padding: 7em 0;
+    .footer_secondary {
+        position: fixed;
+        z-index: 3;
+        left: 0;
+        bottom: 1em;
+        width: 100%;
+    }
 }

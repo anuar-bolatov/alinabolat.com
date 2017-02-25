@@ -2,7 +2,6 @@
  * Custom
  */
 //= partials/smooth_scrolling.js
-//= partials/hide_navbar.js
 
 /*
  * Bootstrap
