@@ -18,12 +18,25 @@ of those sections to manage the look and feel of the site. */
 .header_global {
     position: relative;
     z-index: 11;
+    width: 100%;
+    transition: transform .5s ease-in-out;
+}
+
+.header_global.up {
+    transform: translateY(-100%);
 }
 
 .main_content {
     position: relative;
     z-index: 10;
     background: #fff;
+}
+
+.services_section,
+.consulting_section,
+.analitics_section {
+    padding: 3em 0;
+    margin-bottom: 2em;
 }
 
 .footer_spacer {
