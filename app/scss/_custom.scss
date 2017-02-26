@@ -1,53 +1,8 @@
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 body {
-    box-sizing: border-box;
     position: relative;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
-/* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
-The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
-of those sections to manage the look and feel of the site. */
-
-.header_global {
-    position: relative;
-    z-index: 11;
-    width: 100%;
-    transition: transform .5s ease-in-out;
-
-    &.up {
-        transform: translateY(-100%);
-    }
-}
-
-.active {
-    position: relative;
-
-    &:after {
-        // box-shadow: 0 -3px #8F3985 inset;
-        // transition: 0.5s;
-        display: block;
-        position: absolute;
-        content: '';
-        height: 3px;
-        width: 100%;
-        left: 0;
-        bottom: 0;
-        background-color: #8F3985;
-        animation: active .3s ease-in-out;
-    }
-
-    @keyframes active {
-        from {width: 0;}
-        to {width: 100%;}
-    }
-}
+/* Content Styles */
 
 .main_content {
     position: relative;
@@ -60,50 +15,38 @@ of those sections to manage the look and feel of the site. */
         padding: 3em 0;
         margin-bottom: 2em;
     }
-}
 
-
-
-// Footer styles
-
-.footer_spacer {
-    position: relative;
-    z-index: -1;
-    height: 20em;
-    pointer-events: none;
-}
-
-footer {
-    position: fixed;
-    z-index: 0;
-    height: 30em;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: #ff5c5c;
-
-    .footer, .footer_link {
-        display: block;
-        position: absolute;
-        z-index: 2;
+    .hero_section {
+        display: flex;
         top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+        background:
+            linear-gradient(rgba(37, 37, 37, 0.22),
+            rgba(0, 0, 0, 0.8)), url('/img/hero_bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 65%;
+        background-attachment: fixed;
+        align-items: flex-end;
+        /* Large. Above 62em (992px) */
+        @media screen and (min-width: 62em) {
+            height: 100vh;
+        }
 
-    .footer_content {
-        position: fixed;
-        z-index: 1;
-        bottom: 13em;
-        width: 100%;
-    }
-
-    .footer_secondary {
-        position: fixed;
-        z-index: 3;
-        left: 0;
-        bottom: 1em;
-        width: 100%;
-    }
+        .hero_section-content {
+            color: #fff;
+            /* Large. Above 62em (992px) */
+            @media only screen and (min-width: 62em) {
+                padding: 0 10em;
+            }
+            /* Small. Above 34em (544px) */
+            @media only screen and (max-width: 34em) {
+                .display-4 {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    } 
 }
+
+@import 'navigation';
+@import 'footer';

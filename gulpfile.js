@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     htmlmin = require('gulp-htmlmin'),
     rimraf = require('rimraf'),
+    imagemin = require('gulp-imagemin'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
 
@@ -18,12 +19,14 @@ var path = {
     build: {
         html: 'dist/',
         js: 'dist/js/',
-        css: 'dist/css/'
+        css: 'dist/css/',
+        img: 'dist/img/'
     },
     src: {
         html: 'app/*.html',
         js: 'app/js/app.js',
-        style: 'app/scss/app.scss'
+        style: 'app/scss/app.scss',
+        img: 'app/img/*'
     },
     watch: {
         html: 'app/**/*.html',
@@ -86,10 +89,17 @@ gulp.task('style:build', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('imagemin:build', function () {
+    gulp.src(path.src.img)
+        .pipe(imagemin())
+        .pipe(gulp.dest(path.build.img));
+});
+
 gulp.task('build', [
     'html:build',
     'js:build',
-    'style:build'
+    'style:build',
+    'imagemin:build'
 ]);
 
 

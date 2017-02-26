@@ -2,6 +2,7 @@
  * Custom
  */
 //= partials/smooth_scrolling.js
+//= partials/parallax.js
 
 /*
  * Bootstrap
