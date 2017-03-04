@@ -14,7 +14,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    background: #ff5c5c;
+    background: $brand;
 
     .footer, .footer_link {
         display: block;
@@ -29,7 +29,7 @@ footer {
     .footer_content {
         position: fixed;
         z-index: 1;
-        bottom: 13em;
+        bottom: 13rem;
         width: 100%;
     }
 
@@ -37,7 +37,7 @@ footer {
         position: fixed;
         z-index: 3;
         left: 0;
-        bottom: 1em;
+        bottom: 1rem;
         width: 100%;
     }
 }

@@ -1,0 +1,43 @@
+.hero_section {
+	position: relative;
+	z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+
+    // Gradient background animation
+    background: linear-gradient(312deg, $brand,  $yellow);
+    background-size: 400% 400%;
+
+    animation: AnimationName 30s ease infinite;
+
+    @keyframes AnimationName { 
+        0%{background-position:0% 4%}
+        50%{background-position:100% 97%}
+        100%{background-position:0% 4%}
+    }
+
+    .hero_section-img {
+        flex: 0 0 100%;
+        padding: 0;
+        margin: 0;
+        img {
+            width: 100%;
+        }
+    }
+
+    .hero_section-txt {
+        background: $white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+
+        .hero_section-txt-inner {
+            height: auto;
+            flex: 0 0 100%;
+        }
+    }
+}

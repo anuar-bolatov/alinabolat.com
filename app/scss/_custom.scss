@@ -1,52 +1,33 @@
-body {
-    position: relative;
+$brand: #ff5c5c;
+$white: #ffffff;
+$grey: #8f8f8c;
+$light-grey: #f8f7f5;
+$yellow: #fdc56c;
+$text-grey: #7a8088;
+$text-default: #626a73;
+$text-dark: #3a405b;
+
+
+html, body {
+    font-family: 'Open Sans', sans-serif !important;
+    color: $text-default;
 }
 
-/* Content Styles */
+// section {
+// 	min-width: 100%;
+// 	height: 90vh;
+// 	display: table;
+// }
 
-.main_content {
-    position: relative;
-    z-index: 10;
-    background: #fff;
-
-    .services_section,
-    .consulting_section,
-    .analitics_section {
-        padding: 3em 0;
-        margin-bottom: 2em;
-    }
-
-    .hero_section {
-        display: flex;
-        top: 0;
-        background:
-            linear-gradient(rgba(37, 37, 37, 0.22),
-            rgba(0, 0, 0, 0.8)), url('/img/hero_bg.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 65%;
-        background-attachment: fixed;
-        align-items: flex-end;
-        /* Large. Above 62em (992px) */
-        @media screen and (min-width: 62em) {
-            height: 100vh;
-        }
-
-        .hero_section-content {
-            color: #fff;
-            /* Large. Above 62em (992px) */
-            @media only screen and (min-width: 62em) {
-                padding: 0 10em;
-            }
-            /* Small. Above 34em (544px) */
-            @media only screen and (max-width: 34em) {
-                .display-4 {
-                    font-size: 2.5rem;
-                }
-            }
-        }
-    } 
+h1, h2, h3, h4, h5, h6 {
+	color: $text-dark;
+	margin-bottom: 2rem;
 }
 
+@import 'hero';
 @import 'navigation';
+@import 'content';
 @import 'footer';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Open+Sans:400,700');
