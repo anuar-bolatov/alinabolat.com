@@ -1,30 +1,30 @@
 .hero_section {
 	position: relative;
-	z-index: 10;
+    overflow: hidden;
+	z-index: 11;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto;
+    background: url(../img/hero_bg.jpg);
+    background-size: cover;
+    padding: 1rem 1rem 3rem 1rem;
 
-    // Gradient background animation
-    background: linear-gradient(312deg, $brand,  $yellow);
-    background-size: 400% 400%;
-
-    animation: AnimationName 30s ease infinite;
-
-    @keyframes AnimationName { 
-        0%{background-position:0% 4%}
-        50%{background-position:100% 97%}
-        100%{background-position:0% 4%}
+    @media (min-width: 992px) and (max-width: 1199px) {
+        padding: 2rem 0;
     }
+    @media (min-width: 1200px) {
+        padding: 5rem 0;
+    }
+
 
     .hero_section-img {
         flex: 0 0 100%;
         padding: 0;
         margin: 0;
-        img {
-            width: 100%;
-        }
+        background: url('../img/hero_pic.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 280px;
     }
 
     .hero_section-txt {
@@ -38,6 +38,19 @@
         .hero_section-txt-inner {
             height: auto;
             flex: 0 0 100%;
+            margin: 3rem 1rem;
+
+            @media (min-width: 992px) and (max-width: 1199px) {
+                padding: 0 2rem;
+            }
+            @media (min-width: 1200px) {
+                padding: 2rem 3rem;
+            }
+
+            .hero_section-name {
+                font-weight: 700;
+                text-transform: uppercase;
+            } 
         }
     }
 }

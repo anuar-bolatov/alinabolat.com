@@ -1,4 +1,5 @@
 $brand: #ff5c5c;
+$brand-dark: #e84848;
 $white: #ffffff;
 $grey: #8f8f8c;
 $light-grey: #f8f7f5;
@@ -6,6 +7,7 @@ $yellow: #fdc56c;
 $text-grey: #7a8088;
 $text-default: #626a73;
 $text-dark: #3a405b;
+$blue: #3c79cf;
 
 
 html, body {
@@ -13,21 +15,50 @@ html, body {
     color: $text-default;
 }
 
-// section {
-// 	min-width: 100%;
-// 	height: 90vh;
-// 	display: table;
-// }
+#wrapper {
+    position: relative;
+    width: 100%;
+}
 
 h1, h2, h3, h4, h5, h6 {
 	color: $text-dark;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 }
+
+h2 {
+    font-weight: 700;
+}
+
+.btn-primary {
+    color: $white;
+    background-color: $brand;
+    border-color: $brand;
+    padding: .5rem 1.25rem;
+    border-radius: 1.25rem;
+    margin-top: 0.75rem;
+    &:hover {
+	    background-color: $brand-dark;
+	    border-color: $brand-dark;
+	}
+}
+
+// Gradient background animation
+.animated-gradient {
+    background: linear-gradient(312deg, $brand,  $yellow);
+    background-size: 400% 400%;
+
+    animation: AnimationName 30s ease infinite;
+
+    @keyframes AnimationName { 
+        0%{background-position:0% 4%}
+        50%{background-position:100% 97%}
+        100%{background-position:0% 4%}
+    }
+}    
 
 @import 'hero';
 @import 'navigation';
 @import 'content';
 @import 'footer';
-
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Open+Sans:400,700');
+@import 'contact';
+@import 'thanks';

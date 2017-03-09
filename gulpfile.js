@@ -23,7 +23,7 @@ var path = {
         img: 'dist/img/'
     },
     src: {
-        html: 'app/*.html',
+        html: 'app/*.*',
         js: 'app/js/app.js',
         style: 'app/scss/app.scss',
         img: 'app/img/*'
@@ -40,7 +40,7 @@ var config = {
     server: {
         baseDir: "./dist"
     },
-    tunnel: true,
+    tunnel: false,
     tunnel: "alinabolat",
     host: 'localhost'
 };

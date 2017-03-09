@@ -1,7 +1,113 @@
 /* Content Styles */
-
 .main_content {
 	position: relative;
     z-index: 10;
     background: $light-grey;
+
+    .about_section {
+		text-align: center;
+		padding: 5rem 0 4rem 0;
+
+		.about_section-resume {
+			text-align: initial;
+
+			a {
+			    font-weight: 700;
+			    color: $brand;
+				position: relative;	
+
+			    &:hover {
+			        color: $brand-dark;
+			        text-decoration: none;
+			    }
+
+			    &:after{
+			    	content: url(../img/zigzag_line.svg);
+			    	position: absolute;
+				    width: 100%;
+				    display: block;
+				    top: 16px;
+				    left: 0;
+			    }
+			}
+		}	
+	}
+
+	.services_section {
+		padding-bottom: 3rem;
+
+		&:before {
+			content: '';
+			display: block;
+			background-color: $grey;
+			opacity: 0.2;
+			width: 100%;
+			height: 2px;
+			margin-bottom: 4.75rem;
+		}
+
+		.row {
+			justify-content: center;
+			flex-flow: row wrap;
+		}
+
+		img {
+			max-width: 64px;
+			padding-bottom: 1rem;
+		}
+	}
+
+	.meeting {
+		margin-bottom: 2rem;
+	  	img {
+	  		max-width: 100%;
+	  	}
+	}
+
+	.accreditations_section {
+		text-align: center;
+		padding: 2rem 0 4rem 0;
+
+		.accreditations_section-pics {
+			padding-top: 1.5rem;
+			display: flex;
+			flex-wrap: wrap;
+	        justify-content: center;
+
+	        a {
+	        	margin: 0 1rem;
+	        	&:first-child, &:last-child {
+	        		margin: 0; 
+	        	}
+	        }
+
+	        img {
+	        	width: 140px;
+	        	padding: 0.5rem;
+	        }
+		}
+	}
+
+}/* Main container */
+
+.testimonials_section {
+	background: $white;
+	position: relative;
+    z-index: 10;
+    padding: 5rem 0;
+    color: $text-grey;
+
+    p:first-child {
+    	font-weight: 700;
+    	color: $text-dark;
+    }
+
+    img {
+		border-radius: 50%;
+		max-width: 68px;
+	}
+
+	.media {
+		margin-top: 1rem;
+    }
 }

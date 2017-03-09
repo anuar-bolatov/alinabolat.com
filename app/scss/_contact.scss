@@ -1,0 +1,27 @@
+.contact_me-head {
+	background: $white;
+	padding: 5rem 0;
+
+	a {
+		font-weight: 700;
+    	color: $brand;
+    	&:hover {
+	        color: $brand-dark;
+	        text-decoration: none;
+	    }
+	}
+}
+
+.contact_me-body {
+	padding: 2rem 0 4rem 0;
+	
+	.row {
+		margin: 0;
+	}
+
+	legend {
+		font-size: 1.75rem;
+		color: $text-dark;
+		margin-bottom: 2rem;
+	}
+}

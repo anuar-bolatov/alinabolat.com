@@ -1,14 +1,20 @@
 $(document).ready(function(){
-	var position = $('#page-top').offset();
 
-	$(document).scroll(function() {
+	$(window).resize(function() {
 
-		var y = $(this).scrollTop();
+		var position = $('nav').offset();
 
-	    if (y > position.top) {
-	        $('nav').addClass('sticky');
-	    } else {
-	        $('nav').removeClass('sticky');
-	    }
-	});
-});
+		$(document).scroll(function(){
+			
+			var y = $(this).scrollTop();
+
+		    if (y > position.top) {
+		        $('nav').addClass('sticky');
+		    } else {
+		        $('nav').removeClass('sticky');
+		    }
+		});
+
+	// Call it on resize.
+	}).resize();
+}); // jQuery

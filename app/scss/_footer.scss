@@ -3,18 +3,19 @@
 .footer_spacer {
     position: relative;
     z-index: -1;
-    height: 20em;
+    height: 26rem;
     pointer-events: none;
 }
 
 footer {
     position: fixed;
+    overflow: hidden;
     z-index: 0;
-    height: 30em;
     left: 0;
     bottom: 0;
     width: 100%;
-    background: $brand;
+    height: 26rem;
+    color: $white;
 
     .footer, .footer_link {
         display: block;
@@ -29,15 +30,39 @@ footer {
     .footer_content {
         position: fixed;
         z-index: 1;
-        bottom: 13rem;
+        bottom: 10rem;
         width: 100%;
+        font-weight: 700;
+        font-size: 1.5rem;
+        
+        svg {
+            width: 68px;
+        }
     }
 
     .footer_secondary {
         position: fixed;
         z-index: 3;
         left: 0;
-        bottom: 1rem;
+        bottom: 0;
         width: 100%;
+
+        .list-inline {
+            padding-bottom: 0.5rem;
+            .list-inline-item {
+                padding: 0 .5rem;
+            }
+
+            svg {
+                width: 2rem;
+                height: 2rem;
+                fill: #fff;
+
+                &:hover {
+                    transition: transform 0.2s ease-in;
+                    transform: scale(1.2);
+                }
+            }
+        }  
     }
 }

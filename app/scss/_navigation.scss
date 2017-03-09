@@ -1,16 +1,12 @@
 // Main Navigation styles
 nav {
     position: relative;
+    overflow: hidden;
     z-index: 11;
     width: 100%;
-    min-height: 10vh;
     background-color: $white;
     letter-spacing: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    //transition: transform .5s ease-in-out;
     /* &.up {
         transform: translateY(-100%);
     } */
@@ -20,9 +16,29 @@ nav {
         top: 0;
     }
 
+    .nav {
+        min-height: 10vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
     a {
         color: $text-grey;
-        & :hover { color: $text-dark;}
+        &:focus, &:hover { color: $text-dark;}
+    }
+
+    .nav-item {
+        padding: 0.5rem;
+        
+        @media (min-width: 992px) {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    .nav-link {
+        padding: 0;
     }
 }
 
@@ -37,7 +53,7 @@ nav {
         height: 3px;
         width: 100%;
         left: 0;
-        bottom: 0;
+        bottom: -0.25rem;
         background-color: $brand;
         animation: active .3s ease-in-out;
     }
