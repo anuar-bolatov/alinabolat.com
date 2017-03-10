@@ -1,10 +1,6 @@
-/*
- * Custom
- */
+/* Custom */
 //= partials/smooth_scrolling.js
 //= partials/sticky_navbar.js
 
-/*
- * Bootstrap
- */
+/* Bootstrap */
 //= ../../node_modules/bootstrap/dist/js/bootstrap.js

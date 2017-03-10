@@ -31,24 +31,26 @@
 
 			<div class="contact_me-body container">
 				
-					<form id="myform" action="../form-to-email.php" method="post" enctype="text/plain">
+					<form id="myform" action="contact-me.php" method="post" enctype="text/plain">
 						<div class="row form-group justify-content-center text-center">
 							<div class="col-sm-12"><legend class="col-form-legend">Contact form</legend></div>
 							<div class="col-sm-12 col-md-8">
-								<label for="inputName" class="form-text text-muted"><strong>Tell me your name</strong></label>
 
-								<input name="name" type="text" class="form-control mb-4" id="inputName" placeholder="Your name" value="<?php echo $name;?>">
+								<label for="name" class="form-text text-muted"><strong>Tell me your name</strong></label>
+
+								<input name="name" type="text" class="form-control mb-4" id="name" placeholder="Your name">
 							
-								<label for="inputEmail" class="form-text text-muted"><strong>What's your email address?</strong></label>
-								<input name="email" type="text" class="form-control mb-4" id="inputEmail" placeholder="Your email address" value="<?php echo $email;?>">
+								<label for="email" class="form-text text-muted"><strong>What's your email address?</strong></label>
+								<input name="email" type="text" class="form-control mb-4" id="email" placeholder="Your email address">
 							
-								<label for="inputPhone" class="form-text text-muted"><strong>How can I get in touch with you?</strong></label>
-								<input name="phone" type="text" class="form-control mb-4" id="inputPhone" placeholder="Your phone number" value="<?php echo $phone;?>">
+								<label for="phone" class="form-text text-muted"><strong>How can I get in touch with you?</strong></label>
+								<input name="phone" type="text" class="form-control mb-4" id="phone" placeholder="Your phone number">
 							
-								<label for="inputMessage" class="form-text text-muted"><strong>What would you like to talk about?</strong></label>
-								<textarea name="message" type="text" rows="4" class="form-control mb-4" id="inputMessage" placeholder="Your message"><?php echo $message;?></textarea>
+								<label for="message" class="form-text text-muted"><strong>What would you like to talk about?</strong></label>
+								<textarea name="message" type="text" rows="4" class="form-control mb-4" id="message" placeholder="Your message"></textarea>
 							
 								<input name="submit" type="submit" class="btn btn-primary" value="Let's get talking">
+
 							</div>
 						</div>
 					</form>
@@ -127,16 +129,6 @@
 		</footer>
 
 	</div>
-
-	<script language="JavaScript" type="text/javascript">
-		var frmvalidator  = new Validator("myform");
-		frmvalidator.addValidation("inputName","req","Please enter your First Name");
-		frmvalidator.addValidation("inputName","maxlen=20",
-		"Max length for FirstName is 20");
-		frmvalidator.addValidation("inputEmail","maxlen=50");
-		frmvalidator.addValidation("inputEmail","req","Please provide your email");
-		frmvalidator.addValidation("inputEmail","email","Please enter a valid email address");
-	</script>
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/app.js"></script>
