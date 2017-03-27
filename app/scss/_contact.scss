@@ -1,6 +1,14 @@
 .contact_me-head {
-	background: $white;
+	background: $white url('../img/contact-me_sm.jpg');
+	background-size: cover;
 	padding: 5rem 0;
+	color: $text-dark;
+
+	@media (min-width: 62em) {
+	  	background: $white url('../img/contact-me_lg.jpg');
+	  	background-size: cover;
+	  }
+
 
 	a {
 		font-weight: 700;

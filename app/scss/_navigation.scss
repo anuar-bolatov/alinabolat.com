@@ -7,10 +7,6 @@ nav {
     background-color: $white;
     letter-spacing: 1px;
 
-    /* &.up {
-        transform: translateY(-100%);
-    } */
-
     &.sticky {
         position: fixed;
         top: 0;
