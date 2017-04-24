@@ -1,16 +1,15 @@
 <?php
-$header = "From: Dmitriy <hello@alinabolat.com>";
-$header .= "Reply-To: hello@alinabolat.com";
-$header .= "MIME-Version: 1.0\r\n";
-  $body = 'Name: ' .$_POST['name'] ."\n"
-        .'Email: ' .$_POST['email'] ."\n"
-        .'Phone: ' .$_POST['phone'] ."\n"
-        .'Message: ' .$_POST['message'];
 
-$message .= $body;
-  
-    $mail=mail('hello@alinabolat.com', 'New Form submission', $message, $header);
-    if($mail)header('location: thank-you.php');
-  
+$recepient = "hello@alinabolat.com";
+$sitename = "alinabolat.com";
+
+$name = trim($_POST["name"]);
+$email = trim($_POST["email"]);
+$phone = trim($_POST["phone"]);
+$text = trim($_POST["message"]);
+$message = "Name: $name \nEmail: $email \nPhone: $phone \nMessage: $text";
+
+$pagetitle = "New message from \"$sitename\"";
+mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
 
 ?>

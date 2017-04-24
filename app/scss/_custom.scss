@@ -42,6 +42,30 @@ h2 {
 	}
 }
 
+
+.parsley-success {
+  color: #3c763d;
+  background-color: #dff0d8 !important; 
+  border-color: #d6e9c6;
+}
+
+.parsley-error {
+  color: #a94442;
+  background-color: #f2dede !important;
+  border-color: #ebccd1;
+}
+
+.parsley-required, .parsley-type, .parsley-minlength {
+  color: #a94442;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.parsley-errors-list {
+  list-style-type: none;
+  padding: 0;
+}
+
 // Gradient background animation
 .animated-gradient {
     background: linear-gradient(312deg, $brand,  $yellow);
